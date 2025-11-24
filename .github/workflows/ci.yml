@@ -8,6 +8,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - run: echo pipeline triggered
+    
+    - name: Say Hello
+      run: echo "Hello from CI!"
+
+    - name: Show current path
+      run: pwd
+
+    - name: List files
+      run: ls -la
+
+    - name: Show date
+      run: date
