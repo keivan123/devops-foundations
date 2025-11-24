@@ -19,5 +19,13 @@ jobs:
     - name: List files
       run: ls -la
 
-    - name: Show date
-      run: date
+    - name: Linux multi-command demo
+      run: |
+        echo "Current directory:"
+        pwd
+        echo ""
+        echo "Files:"
+        ls -la
+        echo ""
+        echo "Kernel version:"
+        uname -r
