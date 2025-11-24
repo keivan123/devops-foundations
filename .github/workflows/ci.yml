@@ -19,13 +19,13 @@ jobs:
     - name: List files
       run: ls -la
 
-    - name: Linux multi-command demo
+    - name: Create artifact file
       run: |
-        echo "Current directory:"
-        pwd
-        echo ""
-        echo "Files:"
-        ls -la
-        echo ""
-        echo "Kernel version:"
-        uname -r
+        echo "This pipeline ran successfully on $(date)" > result.txt
+        echo "Results file created"
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: pipeline-result
+        path: result.txt
