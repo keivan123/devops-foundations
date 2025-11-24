@@ -30,4 +30,4 @@ jobs:
         name: pipeline-result
         path: result.txt
     - name: Run script
-      run: bash devops-foundations/.github/workflows/script.sh
+      run: bash ./script.sh
