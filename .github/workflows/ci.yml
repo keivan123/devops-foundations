@@ -29,5 +29,7 @@ jobs:
       with:
         name: pipeline-result
         path: result.txt
+    - name: make script executable    
+      run: chmod +x .github/workflows/script.sh
     - name: Run script
-      run: bash ./script.sh
+      run: bash .github/workflows/script.sh
