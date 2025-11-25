@@ -8,30 +8,33 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    
-    - name: Say Hello
-      run: echo "Hello from CI!"
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Show current path
-      run: pwd
+      - name: Say Hello
+        run: echo "Hello from CI!"
 
-    - name: List files
-      run: ls -la
+      - name: Show current path
+        run: pwd
 
-    - name: Create artifact file
-      run: |
-        echo "This pipeline ran successfully on $(date)" > result.txt
-        echo "Results file created"
+      - name: List files
+        run: ls -la
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4
-    - name: Checkout code
-      uses: actions/checkout@v4
-      with:
-        name: pipeline-result
-        path: result.txt
-    - name: make script executable    
-      run: chmod +x .github/workflows/script.sh
-    - name: Run script
-      run: bash .github/workflows/script.sh
+      - name: Create artifact file
+        run: |
+          echo "This pipeline ran successfully on $(date)" > result.txt
+          echo "Results file created"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-result
+          path: result.txt
+
+      - name: Make script executable
+        run: chmod +x .github/workflows/script.sh
+
+      - name: Run script
+        run: bash .github/workflows/script.sh
