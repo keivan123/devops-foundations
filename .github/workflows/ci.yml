@@ -33,6 +33,12 @@ jobs:
           name: pipeline-result
           path: result.txt
 
+      - name: Install tree package
+        run: sudo apt-get update && sudo apt-get install -y tree
+
+      - name: Show directory structure
+        run: tree .
+
       - name: Make script executable
         run: chmod +x .github/workflows/script.sh
 
